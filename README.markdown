@@ -1,4 +1,4 @@
-# Ruby on Rails Tutorial: sample application
+# TelemetryWeb Tutorial: Home Monitor Sample Application
 
 This is the sample application for
 [*The TelemetryWeb Home Monitor Demo*](http://www.telemetryweb.com/)
