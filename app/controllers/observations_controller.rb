@@ -3,7 +3,7 @@ class ObservationsController < ApplicationController
 
     def show
         @observations = Observation.new.get_recent("homemonitor")
-        
     end
+
 
 end

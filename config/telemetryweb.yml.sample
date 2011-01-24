@@ -1,0 +1,7 @@
+connection:
+  base_uri: beta.telemetryweb.com
+
+manufacturer:
+  orgcode: myorg
+  adminuser: myadminuser
+  adminpassword: myadminpassword
