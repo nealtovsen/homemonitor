@@ -1,16 +1,16 @@
 <tr>
-  <td>
-    <%= Time.iso8601(observation["samplingTime"]) %>    
-  </td>
-  <td>
+    <td>
+    <%= Time.iso8601(observation["samplingTime"]) %>
+    </td>
+    <td>
     <%= observation["sensorProcess"] %>
-  </td>
-  <td>
+    </td>
+    <td>
     <table>
-      <% observation["result"]["record"]["quantity"].each do |result| %>
-          <td><%= result["name"] %>: <%= result["value"] %> <%= result["uom"] %></td>
+        <tr>
+            <% result = observation["result"]["quantity"] %>
+            <td><%= result["name"] %>: <%= result["value"] %> <%= result["uom"] %></td>
         </tr>
-      <% end %>
     </table>
-  </td>
+    </td>
 </tr>

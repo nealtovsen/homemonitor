@@ -1,32 +1,10 @@
-<% unless @observations.nil? %>
 <h1>Past Week</h1>
 <p>
-    <div class='chartdiv' id='pastweekchart' style='width: 600px; height: 260px;'>
+    <div class='chartdiv' id='visualization' style='width: 600px; height: 260px;'>
     </div>
-    <%= raw @chart.render('pastweekchart') %>
+    
+    <%= raw @chart.render('visualization') %>
 </p>
 <p>
 </p>
-<h1>Recent Raw Data</h1>
-<p class="observations">
-    <table class="observations">
-        <tr>
-            <th>Date</th>
-            <th>Temp</th>
-            <th>Light</th>
-        </tr>
-        <% @observations[0..4].each do |observation| %>
-        <tr>
-            <td>
-            <%= Time.iso8601(observation["samplingTime"]) %>
-            </td>
-            <% temp = observation["result"]["record"]["quantity"][0] %>
-            <td><%= temp["value"] %> <%= temp["uom"] %></td>
-            <% light = observation["result"]["record"]["quantity"][1] %>
-            <td><%= light["value"] %> <%= light["uom"] %></td>
-        </tr>
-        <% end %>
 
-    </table>
-</p>
-<% end %>

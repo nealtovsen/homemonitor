@@ -5,7 +5,8 @@ gem 'sqlite3-ruby', '1.3.2', :group => :development
 gem 'gravatar_image_tag', '1.0.0.pre2'
 gem 'will_paginate', '3.0.pre2'
 gem "httparty", '0.6.1'
-gem 'google_visualr', :git => 'git://github.com/burkestar/google_visualr.git'
+# gem 'google_visualr', :git => 'git://github.com/burkestar/google_visualr.git'
+gem 'google_visualr', :git => 'git://github.com/rhec/google_visualr.git'
 
 
 group :development do

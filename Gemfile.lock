@@ -1,8 +1,8 @@
 GIT
-  remote: git://github.com/burkestar/google_visualr.git
-  revision: 64f40518a8e9a00acb995a8f0cccf2a9ec121758
+  remote: git://github.com/rhec/google_visualr.git
+  revision: a298b771b2ca4ebff277cc2fa8d29b6966d1aead
   specs:
-    google_visualr (1.0.0)
+    google_visualr (1.0.1)
 
 GEM
   remote: http://rubygems.org/
