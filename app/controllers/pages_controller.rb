@@ -54,8 +54,8 @@ class PagesController < ApplicationController
                 end
             end
 
-            options = { :displayAnnotations => false, :scaleType => 'allfixed', :scaleColumns => [0,1], :displayZoomButtons => false }
-        @chart = GoogleVisualr::Visualizations::AnnotatedTimeLine.new(options, data)
+            post_options = { :displayAnnotations => false, :scaleType => 'allfixed', :scaleColumns => [0,1], :displayZoomButtons => false }
+        @chart = GoogleVisualr::Visualizations::AnnotatedTimeLine.new(post_options, data)
         end
     end
 end
