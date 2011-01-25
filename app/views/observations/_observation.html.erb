@@ -8,8 +8,12 @@
     <td>
     <table>
         <tr>
-            <% result = observation["result"]["quantity"] %>
-            <td><%= result["name"] %>: <%= result["value"] %> <%= result["uom"] %></td>
+            <% temp = observation["result"]["record"]["quantity"][0] %>
+            <td><%= temp["name"] %>: <%= temp["value"] %> <%= temp["uom"] %></td>
+        </tr>
+        <tr>
+            <% light = observation["result"]["record"]["quantity"][1] %>
+            <td><%= light["name"] %>: <%= light["value"] %> <%= light["uom"] %></td>
         </tr>
     </table>
     </td>
