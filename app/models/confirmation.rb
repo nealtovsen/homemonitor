@@ -9,14 +9,14 @@ class Confirmation
     end
 
     def confirm(confirmation)
-        body = CONFIRMATION % [
-            confirmation[:activation_code]
-        options = {
-            :headers => {'content-type', 'application/xml'},
-            :body => body
-        }
-        response = self.class.post('/rest/v1/confirmations', options)
-        puts response.to_s
+        # body = CONFIRMATION % [
+        #     confirmation[:activation_code]
+        # options = {
+        #     :headers => {'content-type', 'application/xml'},
+        #     :body => body
+        # }
+        # response = self.class.post('/rest/v1/confirmations', options)
+        # puts response.to_s
     end
 
     CONFIRMATION = <<XML
