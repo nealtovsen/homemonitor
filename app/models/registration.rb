@@ -1,7 +1,8 @@
 class Registration
     include HTTParty
+    include TWExceptions
     format :xml
-    # debug_output
+    debug_output
 
     REGISTRATION = <<XML
 <registration>
@@ -36,7 +37,15 @@ XML
             :body => body
         }
         response = self.class.post('/rest/v1/registrations', options)
-        puts response.to_s
+        # puts "response"
+        # puts response.response.code.to_yaml
+        if response.response.code != '204'
+          regException = TWRegFailed.new()
+          regException.reason = response.response.body
+          raise regException
+        end
+        
+        return true
     end
     
 end

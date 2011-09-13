@@ -1,7 +1,7 @@
 class Observation
     include HTTParty
     format :xml
-    # debug_output
+    debug_output
 
     def initialize
         config = YAML.load_file("config/telemetryweb.yml")
