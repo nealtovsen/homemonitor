@@ -1,0 +1,11 @@
+<h1>Confirm Your Account</h1>
+<%= form_for(:confirmations, :url => confirmations_path) do |f| %>
+<div class="field">
+    <%= f.label :confirmation_code %>
+    <br />
+    <%= f.text_field(:confirmation_code, :size => "40") %>
+</div>
+<div class="actions">
+    <%= f.submit "Confirm Your Account" %>
+</div>
+<% end %>

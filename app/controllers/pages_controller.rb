@@ -38,10 +38,10 @@ class PagesController < ApplicationController
             # light annotation value
             data.add_column('string', 'text2')
 
-            # Add Rows and Values
-            data.add_rows(@observations.count)
 
             unless @observations.nil?
+                # Add Rows and Values
+                data.add_rows(@observations.count)
                 index = 0
                 @observations.each do |observation|
                     date = Time.iso8601(observation["samplingTime"])

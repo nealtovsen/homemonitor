@@ -5,9 +5,8 @@ class RegistrationsController < ApplicationController
     end
 
     def create
-        puts "hello!! " + params[:registrations].to_s
         Registration.new.register(params[:registrations])
-        render 'confirm'
+        redirect_to "/confirm" #:controller => 'confirmations', :action => 'new'
     end
 
 end
