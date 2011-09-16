@@ -8,6 +8,9 @@ class ApplicationController < ActionController::Base
 
     def catch_exceptions
         yield
+    rescue TWNotAllowed => notAllowed
+      logger.debug "TelemetryWeb says not allowed."
+      redirect_to "/confirm"
     rescue TWSessionEnded => twSessEnded
       logger.debug "TelemetryWeb session ended."
       sign_out

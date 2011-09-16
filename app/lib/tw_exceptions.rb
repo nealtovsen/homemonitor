@@ -13,5 +13,12 @@ module TWExceptions
     end
 
   end
+  
+  class TWNotAllowed < StandardError
+    def message
+      "Access Denied."
+    end
+
+  end
 
 end

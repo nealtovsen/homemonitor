@@ -1,5 +1,6 @@
 class Observation
     include HTTParty
+    include TWExceptions
     format :xml
     debug_output
 
@@ -24,10 +25,11 @@ class Observation
         options = { :basic_auth => {:username => login, :password => submitted_password}, :query => {:pagesize => pagesize, :sensor => sensorName} }
         begin
             response = self.class.get('/rest/v1/observations/' + orgcode, options)
+            
+            if response.response.code == '403'
+              raise TWNotAllowed
+            end
             response["observations"]["observation"]
-        rescue Exception => e
-            puts "got exception!"
-            puts e.message
         end
     end
 
