@@ -1,0 +1,16 @@
+#############################################################################################
+This file represents a successful response returned by TelemetryWeb for the register sensor 
+request. It includes both the HTTP response headers as well as the XML body. 
+#############################################################################################
+
+HTTP/1.1 200 OK
+Server: Apache-Coyote/1.1
+Set-Cookie: JSESSIONID=2E5F9DA69DAD054C31E2C0445263B0CB; Path=/ogc
+Content-Type: text/xml
+Content-Length: 226
+Date: Sun, 18 Sep 2011 21:41:56 GMT
+
+<?xml version="1.0" encoding="UTF-8"?>
+<sos:RegisterSensorResponse xmlns:sos="http://www.opengis.net/sos/1.0">
+  <sos:AssignedSensorId>urn:telweb:sensor:testorg:homemonitor</sos:AssignedSensorId>
+</sos:RegisterSensorResponse>

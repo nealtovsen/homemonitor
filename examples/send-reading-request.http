@@ -1,0 +1,43 @@
+#############################################################################################
+This file represents a request sent to by the Home Monitor device to insert an "observation", 
+which is a sensor reading. It includes both the HTTP headers as well as the document body. 
+On Windows, we recommend using Fiddler to test your documents.
+
+This document leverages the REST interface, in this case encoding the data using JSON. XML 
+of equivalent syntax is also accepted. If you send XML data, don't forget to change the 
+Content-Type header to application/xml.
+
+To send data from your Home Monitor device, replace "testorg" with your organization code in 
+the body, and provide the latest readings where appropriate. When posting, set the 
+Authorization header as described in the document. For security, we recommend using HTTPS.
+#############################################################################################
+
+POST https://beta.telemetryweb.com/rest/v1/observations/testorg HTTP/1.1
+User-Agent: Fiddler
+Authorization: Basic {replace-with-base64-encoded-string-representing-[tenant]\[username]:[password]}
+Host: beta.telemetryweb.com
+Content-Type: application/json
+
+{
+    "observation":{
+        "sensorProcess":"urn:telweb:sensor:testorg:homemonitor",
+        "obsProperty":"currentconditions",
+        "foi":"myhouse",
+        "result":{
+            "record":{
+                "quantity":[
+                    {
+                        "name":"temp",
+                        "value":77.8,
+                        "uom":"fahrenheit"
+                    },
+                    {
+                        "name":"light",
+                        "value":712,
+                        "uom":"index"
+                    }
+                ]
+            }
+        }
+    }
+}

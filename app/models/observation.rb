@@ -4,17 +4,11 @@ class Observation
     format :xml
     debug_output
 
-    attr_accessor :samplingtime, :id, :result, :sensorProcess
+    attr_accessor :samplingtime, :id, :light, :temp, :sensorProcess
 
     def initialize
         config = YAML.load_file("config/telemetryweb.yml")
-        # @orgname = config["manufacturer"]["orgcode"]
-        # admin = config["manufacturer"]["adminuser"]
-        # username = @orgname + "\\" + admin
-        # password = config["manufacturer"]["adminpassword"]
-
         self.class.base_uri config['connection']['base_uri']
-        # self.class.basic_auth username, password
     end
 
     def get_recent(sensorName, pagesize, current_user)
@@ -44,7 +38,8 @@ class Observation
                     observation = Observation.new()
                     observation.id = resp_obs["id"]
                     observation.samplingtime = resp_obs["samplingTime"]
-                    observation.result = resp_obs["result"]
+                    observation.temp = resp_obs["result"]["record"]["quantity"][0]["value"]
+                    observation.light = resp_obs["result"]["record"]["quantity"][1]["value"]
                     observation.sensorProcess = resp_obs["sensorProcess"]
                     observations << observation
                   end

@@ -29,10 +29,8 @@ class ObservationsController < ApplicationController
       index = 0
       @observations.each do |observation|
         date = Time.iso8601(observation.samplingtime)
-        temp = observation.result["quantity"]["value"].to_f
-        #temp = observation.result["record"]["quantity"][0]["value"].to_f
-        #light = observation.result["record"]["quantity"][1]["value"].to_f
-        light = 0.0
+        temp = observation.temp.to_f
+        light = observation.light.to_f
         data.set_value(index, 0, date)
         data.set_value(index, 1, temp)
         data.set_value(index, 4, light)

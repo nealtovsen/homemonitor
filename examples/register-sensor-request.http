@@ -1,0 +1,93 @@
+#############################################################################################
+This file represents a request sent to register a device. It includes both the HTTP headers
+as well as the XML body. On Windows, we recommend using Fiddler to test your SensorML 
+documents.
+
+Sensors must be registered using the OGC SensorML language.
+
+To register your Home Monitor device, replace "testorg" with your organization code in the 
+XML body. When posting, set the Authorization header as described in the document. For 
+security, we recommend using HTTPS.
+#############################################################################################
+
+POST https://beta.telemetryweb.com/ogc/sos HTTP/1.1
+User-Agent: Fiddler
+Authorization: Basic {replace-with-base64-encoded-string-representing-[tenant]\[username]:[password]}
+Host: beta.telemetryweb.com
+
+<?xml version="1.0" encoding="UTF-8"?>
+<RegisterSensor xmlns="http://www.opengis.net/sos/1.0"
+	xmlns:sml="http://www.opengis.net/sensorML/1.0.1" xmlns:om="http://www.opengis.net/om/1.0"
+	xmlns:swe="http://www.opengis.net/swe/1.0.1" xmlns:gml="http://www.opengis.net/gml"
+	xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.opengis.net/sos/1.0 http://schemas.opengis.net/sos/1.0.0/sosAll.xsd"
+	service="SOS" version="1.0.0">
+	<SensorDescription>
+		<sml:SensorML version="1.0.1">
+			<sml:member>
+				<sml:Component>
+					<!-- METADATA SECTION -->
+					<gml:description>Process that reads ambient air temperatures.
+					</gml:description>
+					<sml:identification>
+						<sml:IdentifierList>
+							<sml:identifier name="uniqueID">
+								<sml:Term definition="urn:ogc:def:identifier:OGC:uniqueID">
+									<sml:codeSpace xlink:href="urn:telweb:id:sensor" />
+									<sml:value>urn:telweb:sensor:testorg:homemonitor</sml:value>
+								</sml:Term>
+							</sml:identifier>
+						</sml:IdentifierList>
+					</sml:identification>
+					<!-- INPUTS DEFINITION -->
+					<sml:inputs>
+						<sml:InputList>
+							<sml:input name="ObservedAmbientAirTemperature">
+								<swe:ObservableProperty definition="ambientairtemp">
+									<gml:description>The ambient air temperature.
+									</gml:description>
+									<gml:name>AirTemp</gml:name>
+								</swe:ObservableProperty>
+							</sml:input>
+							<sml:input name="ObservedAmbientLightLevel">
+								<swe:ObservableProperty definition="ambientlight">
+									<gml:description>The ambient light.
+									</gml:description>
+									<gml:name>Light</gml:name>
+								</swe:ObservableProperty>
+							</sml:input>
+						</sml:InputList>
+					</sml:inputs>
+					<!-- OUTPUTS DEFINITION -->
+					<sml:outputs>
+						<sml:OutputList>
+							<sml:output name="currentconditions">
+								<swe:DataRecord>
+									<swe:field name="light">
+										<swe:Quantity>
+											<swe:uom xlink:href="index" />
+										</swe:Quantity>
+									</swe:field>
+									<swe:field name="temp">
+										<swe:Quantity>
+											<swe:uom xlink:href="fahrenheit" />
+										</swe:Quantity>
+									</swe:field>
+								</swe:DataRecord>
+							</sml:output>
+						</sml:OutputList>
+					</sml:outputs>
+				</sml:Component>
+			</sml:member>
+		</sml:SensorML>
+	</SensorDescription>
+	<ObservationTemplate>
+		<om:Observation>
+			<om:samplingTime />
+			<om:procedure />
+			<om:observedProperty />
+			<om:featureOfInterest />
+			<om:result />
+		</om:Observation>
+	</ObservationTemplate>
+</RegisterSensor>
