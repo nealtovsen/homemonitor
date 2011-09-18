@@ -4,7 +4,7 @@ class Observation
     format :xml
     debug_output
 
-    attr_accessor :samplingtime, :id
+    attr_accessor :samplingtime, :id, :result, :sensorProcess
 
     def initialize
         config = YAML.load_file("config/telemetryweb.yml")
@@ -37,10 +37,15 @@ class Observation
             unless response["observations"].nil?
                 resp_obs_list = response["observations"]["observation"]
                 unless resp_obs_list.nil?
+                  unless resp_obs_list.is_a?(Array)
+                    resp_obs_list = [response["observations"]["observation"]]
+                  end
                   resp_obs_list.each do |resp_obs|
                     observation = Observation.new()
                     observation.id = resp_obs["id"]
                     observation.samplingtime = resp_obs["samplingTime"]
+                    observation.result = resp_obs["result"]
+                    observation.sensorProcess = resp_obs["sensorProcess"]
                     observations << observation
                   end
                 end

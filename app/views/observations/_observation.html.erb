@@ -1,20 +1,24 @@
 <tr>
     <td>
-    <%= Time.iso8601(observation["samplingTime"]) %>
+    <%= Time.iso8601(observation.samplingtime) %>
     </td>
     <td>
-    <%= observation["sensorProcess"] %>
+    <%= observation.sensorProcess %>
     </td>
     <td>
     <table>
         <tr>
+            <% temp = observation.result["quantity"] %>
+            <td><%= temp["name"] %>: <%= temp["value"] %> <%= temp["uom"] %></td>
+        </tr>
+<!--        <tr>
             <% temp = observation["result"]["record"]["quantity"][0] %>
             <td><%= temp["name"] %>: <%= temp["value"] %> <%= temp["uom"] %></td>
         </tr>
-        <tr>
+         <tr>
             <% light = observation["result"]["record"]["quantity"][1] %>
             <td><%= light["name"] %>: <%= light["value"] %> <%= light["uom"] %></td>
-        </tr>
+        </tr> -->        
     </table>
     </td>
 </tr>
