@@ -2,12 +2,9 @@
     <%= link_to logo, root_path %>
     <nav class="round">
         <ul>
-            <li>
-                <%= link_to "Home", root_path %>
-            </li>
             <% if signed_in? %>
             <li>
-                <%= link_to "Recent Data", recent_path, :method => :show %>
+                <%= link_to "Recent Activity", recent_path, :method => :show %>
             </li>
             <% end %>
             <li>

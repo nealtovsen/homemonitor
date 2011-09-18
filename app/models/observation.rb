@@ -36,11 +36,13 @@ class Observation
             observations = Array.new
             unless response["observations"].nil?
                 resp_obs_list = response["observations"]["observation"]
-                resp_obs_list.each do |resp_obs|
-                  observation = Observation.new()
-                  observation.id = resp_obs["id"]
-                  observation.samplingtime = resp_obs["samplingTime"]
-                  observations << observation
+                unless resp_obs_list.nil?
+                  resp_obs_list.each do |resp_obs|
+                    observation = Observation.new()
+                    observation.id = resp_obs["id"]
+                    observation.samplingtime = resp_obs["samplingTime"]
+                    observations << observation
+                  end
                 end
             end
             return observations
