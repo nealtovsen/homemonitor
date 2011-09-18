@@ -30,7 +30,8 @@ module SessionsHelper
 
     def sign_out
         # cookies.delete(:remember_token)
-        session.delete(:remember_token)
+        #session.delete(:remember_token)
+        reset_session
         self.current_user = nil
     end
 

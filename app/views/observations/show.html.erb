@@ -1,5 +1,10 @@
 <h1>Recent Activity</h1>
 <p>
+	<div class='chartdiv' id='visualization' style='width: 600px; height: 260px;'>
+    </div>
+    
+    <%= raw @chart.render('visualization') %>
+    
     <table class="observations">
       <tr>
         <th>Date</th>

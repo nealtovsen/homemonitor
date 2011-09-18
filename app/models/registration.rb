@@ -33,12 +33,10 @@ XML
             registration[:last_name]
         ]
         options = {
-            :headers => {'content-type', 'application/xml'},
+            :headers => {'content-type' => 'application/xml'},
             :body => body
         }
         response = self.class.post('/rest/v1/registrations', options)
-        # puts "response"
-        # puts response.response.code.to_yaml
         if response.response.code != '204'
           regException = TWRegFailed.new()
           regException.reason = response.response.body

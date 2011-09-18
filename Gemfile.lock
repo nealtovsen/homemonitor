@@ -34,7 +34,7 @@ GEM
       activemodel (= 3.0.3)
       activesupport (= 3.0.3)
     activesupport (3.0.3)
-    annotate-models (1.0.4)
+    annotate (2.4.0)
     arel (2.0.7)
     builder (2.1.2)
     crack (0.1.8)
@@ -106,7 +106,7 @@ PLATFORMS
   x86-mingw32
 
 DEPENDENCIES
-  annotate-models (= 1.0.4)
+  annotate
   factory_girl_rails (= 1.0)
   faker (= 0.3.1)
   google_visualr!

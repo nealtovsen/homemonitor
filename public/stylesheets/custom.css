@@ -247,6 +247,23 @@ form.new_micropost textarea {
     margin-bottom: 0;
 }
 
+.queryform {
+	background-color: #C0E0C0;
+    border: 1px solid #000000;
+    margin: 30px;
+    padding: 15px;
+    -moz-border-radius:    10px;
+    -webkit-border-radius: 10px;
+    border-radius:         10px;
+}
+
+.queryform textarea, select {
+	margin: 0.5em;
+}
+
+
+
+/* For Google Charts */
 div.chartdiv {
   margin-left: auto;
   margin-right: auto;
