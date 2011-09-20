@@ -1,5 +1,5 @@
 connection:
-  base_uri: localhost:8080
-  scheme: http
-  #base_uri: beta.telemetryweb.com
-  # scheme: https
+  #base_uri: localhost:8080
+  #scheme: http
+  base_uri: beta.telemetryweb.com
+  scheme: https
